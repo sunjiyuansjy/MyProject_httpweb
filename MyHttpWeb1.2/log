@@ -1,0 +1,27 @@
+g++ -std=c++11 -o HttpServer HttpServer.cc -lpthread -D_DEBUG_
+In file included from HttpServer.hpp:6:0,
+                 from HttpServer.cc:2:
+ProtocolUtil.hpp:377:14: error: ‘sock’ is not a type
+     sendfile(sock,fd,NULL,rsp->RecourceSize());
+              ^
+ProtocolUtil.hpp:377:19: error: ‘fd’ has not been declared
+     sendfile(sock,fd,NULL,rsp->RecourceSize());
+                   ^
+In file included from /usr/include/unistd.h:226:0,
+                 from ProtocolUtil.hpp:8,
+                 from HttpServer.hpp:6,
+                 from HttpServer.cc:2:
+ProtocolUtil.hpp:377:22: error: expected identifier before ‘__null’
+     sendfile(sock,fd,NULL,rsp->RecourceSize());
+                      ^
+ProtocolUtil.hpp:377:22: error: expected ‘,’ or ‘...’ before ‘__null’
+In file included from HttpServer.hpp:6:0,
+                 from HttpServer.cc:2:
+ProtocolUtil.hpp:377:46: error: ISO C++ forbids declaration of ‘sendfile’ with no type [-fpermissive]
+     sendfile(sock,fd,NULL,rsp->RecourceSize());
+                                              ^
+ProtocolUtil.hpp: In static member function ‘static void* Entry::HandlerRequest(void*)’:
+ProtocolUtil.hpp:410:14: warning: deleting ‘void*’ is undefined [enabled by default]
+       delete arg;
+              ^
+make: *** [HttpServer] Error 1
